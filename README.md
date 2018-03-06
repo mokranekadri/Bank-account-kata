@@ -4,9 +4,9 @@
 
 ## Overview:
 
-### The application allow to have multiple account. For each account multiple operation
-### A bank account has a unique identifier. It represented by a balance and a list of operations which could be a deposit or a withdrawal.
-### An operation is categorised(deposit or a withdrawal), have an amount, occurence date and a unique Id. Each operation is linked to a specific account.
+- The application offers the possibility to have multiple accounts. For each account multiple operation
+- A bank account has a unique identifier. It represented by a balance and a list of operations which could be a deposit or a withdrawal.
+- An operation is categorised(deposit or a withdrawal), have an amount, occurence date and a unique Id. Each operation is linked to a specific account.
 
 
 ## This application offers 4 Endpoints allowing:
@@ -122,4 +122,4 @@
  2. Integration test for the restControllers allowing for lightweight end-to-end testing
  
  ## Data initialisation :
- Miration script(liquibase) allows the application initialisation with 4 bank accounts upon start(See changlog.xml file).
+ Miration script(liquibase) allows the application to initialise with 4 bank accounts upon start(See changlog.xml file).
