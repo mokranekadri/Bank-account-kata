@@ -1,19 +1,21 @@
 # Bank-account-kata
 
-### A SpringBoot application offering RestEndpoints in order to interract with for a basic bank account 
+### A SpringBoot application offering RestEndpoints in order to interract with a basic bank account 
 
 ## This application offers 4 endpoints allowing :
  1. Deposit of a given amount of money of an account 
-  PUT /api/accounts/{accountId}/deposit
- 
+ ```json
+ PUT /api/accounts/{accountId}/deposit
+ ```
  payload is as :
  
+ ```json
  {
    "amount":2000
   }
-  
-   Response preview :
-  
+  ```
+  Response preview :
+  ```json
     "balance": 18080000,
     "latestOperations": [
         {
@@ -21,17 +23,24 @@
             "date": "2018-03-06T13:48:07.776Z",
             "type": "DEPOSIT",
             "amount": 20000
-        },
-        
+        },...
+        ]
+        ```
  2. withdrawal of a certain amount from an account
+  
+ ```json
    PUT /api/accounts/{accountId}/withdrawal
+    ```
    payload is as :
+    
+ ```json
    {
     "amount":2000
    }
-   
+    ```
    Response preview :
-   
+    
+ ```json
    {
     "balance": 12080000,
     "latestOperations": [
@@ -42,14 +51,15 @@
             "amount": -2000000
         },...
    ]
- 
+  ```
   
  3. All operations (debit , credit) listing
     
-    GET /api/accounts/{accountId}/history
+   ```json  GET /api/accounts/{accountId}/history
+    ```
    
    example of response :
-   
+   ```json
    [
     {
         "id": 962,
@@ -64,12 +74,13 @@
         "amount": 20000
     }, ....
    ]
+   ```
  4. Account balance and last operations(5 most recent ones)
  
-    GET /api/accounts/{accountId}
+   ```json  GET /api/accounts/{accountId} ```
     
     example of response :
-    
+    ```json
      {
     "balance": 12080000,
     "latestOperations": [
@@ -81,7 +92,7 @@
         },...
    ]
     
- 
+ ```
  ## Application endpoints could be accessed using Swagger2 Ui integrated to the Application with Apis documentation:
  To do so, visit http://localhost:8080/swagger-ui.html once the application in launched.
  
