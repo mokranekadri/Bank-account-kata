@@ -3,7 +3,7 @@
 ### A SpringBoot application offering RestEndpoints in order to interract with a basic bank account 
 
 ## This application offers 4 endpoints allowing :
- 1. Deposit of a given amount of money of an account 
+ 1. Deposit of a given amount of money on an account 
  ```json
  PUT /api/accounts/{accountId}/deposit
  ```
@@ -13,9 +13,10 @@
  {
    "amount":2000
   }
-  ```
+ ```
   Response preview :
   ```json
+  {
     "balance": 18080000,
     "latestOperations": [
         {
@@ -23,21 +24,24 @@
             "date": "2018-03-06T13:48:07.776Z",
             "type": "DEPOSIT",
             "amount": 20000
-        },...
+        }
+        
         ]
-        ```
- 2. withdrawal of a certain amount from an account
+  }
+   ```
+       
+ 2. withdrawal a certain amount from an account
   
- ```json
-   PUT /api/accounts/{accountId}/withdrawal
-    ```
-   payload is as :
+ ```json 
+ PUT /api/accounts/{accountId}/withdrawal
+ ```
+ payload is as :
     
  ```json
    {
     "amount":2000
    }
-    ```
+   ```
    Response preview :
     
  ```json
@@ -49,16 +53,18 @@
             "date": "2018-03-06T13:48:11.754Z",
             "type": "WITHDRAWAL",
             "amount": -2000000
-        },...
+        },
    ]
   ```
   
  3. All operations (debit , credit) listing
     
-   ```json  GET /api/accounts/{accountId}/history
-    ```
+   ```json  
+   GET /api/accounts/{accountId}/history
+   ```
    
-   example of response :
+   response preview :
+   
    ```json
    [
     {
@@ -77,22 +83,26 @@
    ```
  4. Account balance and last operations(5 most recent ones)
  
-   ```json  GET /api/accounts/{accountId} ```
+   ```json 
+    GET /api/accounts/{accountId} 
+   ```  
+   response preview :
+     
     
-    example of response :
-    ```json
-     {
-    "balance": 12080000,
-    "latestOperations": [
-        {
-            "id": 970,
-            "date": "2018-03-06T13:48:11.754Z",
-            "type": "WITHDRAWAL",
-            "amount": -2000000
-        },...
-   ]
+    {
+                 "balance": 12080000,
+                 "latestOperations": [
+                    {
+                        "id": 970,
+                        "date": "2018-03-06T13:48:11.754Z",
+                        "type": "WITHDRAWAL",
+                        "amount": -2000000
+                    },
+                   ]
+                         
+     }
     
- ```
+
  ## Application endpoints could be accessed using Swagger2 Ui integrated to the Application with Apis documentation:
  To do so, visit http://localhost:8080/swagger-ui.html once the application in launched.
  
