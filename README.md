@@ -1,20 +1,27 @@
 # Bank-account-kata
 
-### A SpringBoot application offering RestEndpoints in order to interract with a basic bank account 
+### A SpringBoot application offering Rest Endpoints in order to interract with a basic bank account 
 
-## This application offers 4 endpoints allowing :
+## Overview:
+
+### The application allow to have multiple account. For each account multiple operation
+### A bank account has a unique identifier. It represented by a balance and a list of operations which could be a deposit or a withdrawal.
+### An operation is categorised(deposit or a withdrawal), have an amount, occurence date and a unique Id. Each operation is linked to a specific account.
+
+
+## This application offers 4 Endpoints allowing:
  1. Deposit of a given amount of money on an account 
  ```json
  PUT /api/accounts/{accountId}/deposit
  ```
- payload is as :
+ Payload is as:
  
  ```json
  {
    "amount":2000
   }
  ```
-  Response preview :
+  Response preview:
   ```json
   {
     "balance": 18080000,
@@ -30,7 +37,7 @@
   }
    ```
        
- 2. withdrawal a certain amount from an account
+ 2. Withdrawal of a given amount of money from an account:
   
  ```json 
  PUT /api/accounts/{accountId}/withdrawal
@@ -57,13 +64,13 @@
    ]
   ```
   
- 3. All operations (debit , credit) listing
+ 3. All operations (debit, credit) listing:
     
    ```json  
    GET /api/accounts/{accountId}/history
    ```
    
-   response preview :
+   Response preview:
    
    ```json
    [
@@ -81,12 +88,12 @@
     }, ....
    ]
    ```
- 4. Account balance and last operations(5 most recent ones)
+ 4. Account balance and last operations (5 most recent ones):
  
    ```json 
     GET /api/accounts/{accountId} 
    ```  
-   response preview :
+   Response preview:
      
     
     {
@@ -103,14 +110,16 @@
      }
     
 
- ## Application endpoints could be accessed using Swagger2 Ui integrated to the Application with Apis documentation:
+ ## Application Endpoints could be accessed using Swagger2 Ui integrated into the Application with API documentation:
  To do so, visit http://localhost:8080/swagger-ui.html once the application in launched.
  
  ## This application is configured to run with a Postgresql Database:
  Setup database name,username and password in the properties.yml file
  
- ## Testing : 
- the application is tested using Junit and assertJ.
- 1.Unit tests mainly for the services
- 2.integration test for the restControllers allowing some kind of end to end testing
+ ## Testing: 
+ The application is tested using Junit and assertJ.
+ 1. Unit tests mainly for the services
+ 2. Integration test for the restControllers allowing for lightweight end-to-end testing
  
+ ## Data initialisation :
+ Miration script(liquibase) allows the application initialisation with 4 bank accounts upon start(See changlog.xml file).
