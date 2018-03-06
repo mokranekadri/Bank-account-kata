@@ -1,0 +1,23 @@
+spring:
+    application:
+        name: bankinAccount
+    jackson:
+        serialization.write_dates_as_timestamps: false
+        serialization.indent_output: true
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/walitufid
+        username: mooky
+        password: mooky
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+        database: POSTGRESQL
+        show-sql: true
+        properties:
+           hibernate.temp.use_jdbc_metadata_defaults: false
+           hibernate.id.new_generator_mappings: true
+        hibernate:
+            ddl-auto: none
+
+    liquibase:
+      change-log: classpath:/liquibase/db-changelog.xml

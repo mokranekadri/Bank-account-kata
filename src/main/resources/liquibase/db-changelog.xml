@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="000" author="mkadri">
+        <createSequence sequenceName="hibernate_sequence" startValue="1000" incrementBy="10"/>
+    </changeSet>
+    <changeSet id="001" author="mkadri">
+        <createTable tableName="account">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="balance" type="bigint">
+            </column>
+        </createTable>
+        <createTable tableName="operation">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="amount" type="bigint">
+            </column>
+            <column name="date" type="timestamp">
+            </column>
+            <column name="type" type="varchar(15)">
+            </column>
+            <column name="account_id" type="bigint">
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="account_id"
+                                 baseTableName="operation"
+                                 constraintName="fk_op_acc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="account"/>
+
+    </changeSet>
+    <changeSet id="002" author="mkadri">
+        <loadData encoding="UTF-8"
+                  file="liquibase/accounts.csv"
+                  separator=";"
+                  tableName="account">
+        </loadData>
+    </changeSet>
+</databaseChangeLog>
