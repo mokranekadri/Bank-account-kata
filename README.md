@@ -4,9 +4,9 @@
 
 ## Overview:
 
-- The application offers the possibility to have multiple accounts. For each account multiple operation
-- A bank account has a unique identifier. It represented by a balance and a list of operations which could be a deposit or a withdrawal.
-- An operation is categorised(deposit or a withdrawal), have an amount, occurence date and a unique Id. Each operation is linked to a specific account.
+- The application offers the possibility to have multiple accounts. For each account multiple operations.
+- A bank account has a unique identifier. It's represented by a balance and a list of operations which could be a deposit or a withdrawal.
+- An operation is categorised(deposit or a withdrawal), have an amount, occurence date and a unique ID. Each operation is linked to a specific account.
 
 
 ## This application offers 4 Endpoints allowing:
