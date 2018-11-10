@@ -6,9 +6,9 @@ spring:
         serialization.indent_output: true
     datasource:
         driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://localhost:5432/app # db name , user and password should be updated in order to interact with db
-        username: app # updateRequired
-        password: app  # updateRequired
+        url:postgres://hdcgxzrshezwmi:5f1f39fe003b72b1daf74f32fc9655438dafbaaa58940de045d46762a12cb510@ec2-54-75-246-50.eu-west-1.compute.amazonaws.com:5432/dfi5918u8c4n4g # db name , user and password should be updated in order to interact with db
+        username: hdcgxzrshezwmi # updateRequired
+        password: 5f1f39fe003b72b1daf74f32fc9655438dafbaaa58940de045d46762a12cb510  # updateRequired
     jpa:
         database-platform: org.hibernate.dialect.PostgreSQL9Dialect
         database: POSTGRESQL
